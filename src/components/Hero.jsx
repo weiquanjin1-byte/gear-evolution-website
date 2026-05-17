@@ -1,4 +1,4 @@
-import { ArrowRight, Binary, Cpu, Gauge, Sparkles } from 'lucide-react';
+import { ArrowRight, Binary, Cog, Cpu, Gauge, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -14,24 +14,26 @@ export default function Hero() {
             进化中
           </span>
         </h1>
-        <p className="mt-5 font-display text-xl text-cyan-100 sm:text-2xl">AI × 机械工程</p>
+        <p className="mt-5 max-w-2xl font-display text-xl leading-8 text-cyan-100 sm:text-2xl">
+          一个机械工程学生从 0 学 AI 的真实进化记录
+        </p>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-          从机械工程出发，探索 AI 的未来。记录每一次学习、每一次思考、每一次进化。
+          从机械图纸、结构设计和工程思维出发，记录学习 AI 工具、Python、智能制造与个人项目的每一步。
         </p>
         <div className="mt-9 flex flex-col gap-4 sm:flex-row">
           <a className="neon-button group" href="#journey">
-            查看成长记录
+            查看学习日志
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
           <a className="neon-button-secondary" href="#projects">
-            查看项目方向
+            查看四个模块
           </a>
         </div>
         <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
           {[
-            ['AI', '工具探索'],
-            ['CAD', '工程基础'],
-            ['Python', '入门实践'],
+            ['AI', '从 0 起步'],
+            ['CAD', '机械底色'],
+            ['Python', '持续练习'],
           ].map(([name, desc]) => (
             <div key={name} className="rounded-lg border border-white/10 bg-white/[.04] p-4 backdrop-blur">
               <div className="font-display text-lg text-cyan-100">{name}</div>
@@ -45,8 +47,9 @@ export default function Hero() {
         <div className="absolute inset-3 rounded-full border border-cyan-300/20 bg-cyan-300/[.03] shadow-neon" />
         <div className="absolute inset-12 rounded-full border border-violet-300/25 shadow-violet" />
         <div className="absolute inset-24 rounded-full border border-pink-300/25 shadow-pink" />
-        <div className="gear-visual absolute left-1/2 top-1/2 grid h-52 w-52 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-cyan-200/50 bg-cyber-panel/80 shadow-neon backdrop-blur-xl">
-          <Cpu className="h-20 w-20 text-cyan-100" />
+        <div className="gear-visual gear-teeth absolute left-1/2 top-1/2 grid h-52 w-52 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-cyan-200/50 bg-cyber-panel/80 shadow-neon backdrop-blur-xl">
+          <Cog className="absolute h-32 w-32 text-cyan-100/30" />
+          <Cpu className="relative h-16 w-16 text-cyan-100" />
         </div>
         <div className="hud-line left-6 top-24 w-36" />
         <div className="hud-line bottom-28 right-5 w-40" />

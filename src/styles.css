@@ -69,6 +69,17 @@ body {
   animation-direction: reverse;
 }
 
+.gear-teeth {
+  background:
+    linear-gradient(45deg, rgba(0, 229, 255, 0.14), transparent 34%),
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(0, 229, 255, 0.22) 0deg 8deg,
+      transparent 8deg 18deg
+    ),
+    rgba(11, 16, 32, 0.82);
+}
+
 .hud-line {
   position: absolute;
   height: 1px;
