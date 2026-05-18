@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { Cog, Search } from 'lucide-react';
 
 const navItems = [
   { label: '首页', href: '#home' },
   { label: '成长记录', href: '#journey' },
   { label: '项目方向', href: '#mechanical-ai' },
-  { label: '技能方向', href: '#lab' },
+  { label: '技能方向', href: '#skills' },
   { label: '关于我', href: '#about' },
 ];
 
@@ -13,16 +12,15 @@ const searchTargets = [
   { keywords: ['首页', '主页', '小齿轮'], href: '#home' },
   { keywords: ['成长', '记录', '学习', '日志', '时间表', '每日'], href: '#journey' },
   { keywords: ['项目', '方向', '机械', '智能制造'], href: '#mechanical-ai' },
-  { keywords: ['技能', '工具', '实验室', 'ai', '人工智能'], href: '#lab' },
+  { keywords: ['技能', '工具', '实验室', 'ai', '人工智能'], href: '#skills' },
   { keywords: ['关于', '我', '个人'], href: '#about' },
 ];
 
 export default function Navbar() {
-  const [query, setQuery] = useState('');
-
   const handleSearch = (event) => {
     event.preventDefault();
-    const normalizedQuery = query.trim().toLowerCase();
+    const formData = new FormData(event.currentTarget);
+    const normalizedQuery = String(formData.get('search') || '').trim().toLowerCase();
 
     if (!normalizedQuery) return;
 
@@ -30,8 +28,8 @@ export default function Navbar() {
       item.keywords.some((keyword) => normalizedQuery.includes(keyword.toLowerCase())),
     );
 
-    window.location.hash = target?.href ?? '#projects';
-    setQuery('');
+    window.location.hash = target?.href ?? '#home';
+    event.currentTarget.reset();
   };
 
   return (
@@ -49,8 +47,7 @@ export default function Navbar() {
         <form onSubmit={handleSearch} className="order-3 flex w-full items-center gap-2 rounded-full border border-cyan-200/20 bg-white/[.04] px-3 py-2 text-sm shadow-neon backdrop-blur sm:order-none sm:w-64">
           <Search className="h-4 w-4 text-cyan-100/75" />
           <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            name="search"
             aria-label="搜索页面区域"
             placeholder="搜索成长记录、项目方向..."
             className="min-w-0 flex-1 bg-transparent text-slate-100 outline-none placeholder:text-slate-500"
@@ -62,7 +59,7 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-cyan-300/10 hover:text-cyan-100"
+              className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-cyan-300/10 hover:text-cyan-100 hover:shadow-neon"
             >
               {item.label}
             </a>

@@ -1,16 +1,19 @@
-import { lazy, Suspense } from 'react';
-import { ArrowRight, Binary, Cpu, Gauge, ScanLine, Sparkles } from 'lucide-react';
+import { ArrowRight, Cpu, Gauge, ScanLine, Sparkles } from 'lucide-react';
 import profileChibi from '../assets/profile-chibi.png';
 
-const HeroBackground = lazy(() => import('./HeroBackground.jsx'));
+const highlights = [
+  ['AI 学习', '从工具使用到模型理解'],
+  ['机械工程', '从制图基础到智能制造'],
+  ['项目实践', '从想法构思到作品落地'],
+];
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
-      <Suspense fallback={<div className="hero-background hero-background-fallback" aria-hidden="true" />}>
-        <HeroBackground />
-      </Suspense>
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-5 pb-20 pt-32 lg:grid-cols-[1.02fr_.98fr]">
+    <section id="home" className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_32%,rgba(0,229,255,.2),transparent_28%),radial-gradient(circle_at_88%_22%,rgba(139,92,246,.24),transparent_26%),linear-gradient(110deg,#050814_0%,#070b18_44%,#120722_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-cyber-grid bg-[length:30px_30px] opacity-50 [mask-image:linear-gradient(to_bottom,black,transparent_92%)]" />
+
+      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-5 pb-20 pt-32 lg:grid-cols-[1.02fr_.98fr]">
         <div className="hero-copy-panel relative z-10">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100 shadow-neon">
             <Sparkles className="h-4 w-4" />
@@ -39,13 +42,9 @@ export default function Hero() {
               查看项目方向
             </a>
           </div>
-          <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
-            {[
-              ['AI 学习', '从工具使用到模型理解'],
-              ['机械工程', '从制图基础到智能制造'],
-              ['项目实践', '从想法构思到作品落地'],
-            ].map(([name, desc]) => (
-              <div key={name} className="hud-mini-card rounded-lg border border-cyan-200/15 bg-white/[.04] p-4 backdrop-blur">
+          <div id="skills" className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+            {highlights.map(([name, desc]) => (
+              <div key={name} className="hud-mini-card rounded-lg border border-cyan-200/15 bg-white/[.04] p-4 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cyan-200/35 hover:shadow-neon">
                 <div className="font-display text-lg text-cyan-100">{name}</div>
                 <div className="mt-2 text-sm leading-6 text-slate-400">{desc}</div>
               </div>
@@ -54,18 +53,15 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto h-[560px] w-full max-w-[560px] sm:h-[650px] lg:h-[620px]">
-          <div className="assistant-glow absolute left-1/2 top-[44%] h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+          <div className="assistant-glow absolute left-1/2 top-[43%] h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full" />
           <div className="lab-orbit lab-orbit-a" />
           <div className="lab-orbit lab-orbit-b" />
-          <div className="gear-visual gear-teeth absolute left-1/2 top-[44%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-200/30 bg-cyber-panel/20 shadow-neon backdrop-blur-[2px] sm:h-[400px] sm:w-[400px]" />
+          <div className="gear-visual gear-teeth absolute left-1/2 top-[43%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-200/30 bg-cyber-panel/20 shadow-neon backdrop-blur-[2px] sm:h-[400px] sm:w-[400px]" />
           <div className="circuit-line circuit-line-a" />
           <div className="circuit-line circuit-line-b" />
           <div className="circuit-line circuit-line-c" />
 
           <div className="absolute left-8 top-28 rounded-lg border border-cyan-300/25 bg-cyber-panel/70 p-3 text-cyan-100 shadow-neon backdrop-blur">
-            <Binary className="h-5 w-5" />
-          </div>
-          <div className="absolute bottom-44 left-10 rounded-lg border border-violet-300/30 bg-cyber-panel/70 p-3 text-violet-100 shadow-violet backdrop-blur">
             <Gauge className="h-5 w-5" />
           </div>
           <div className="absolute right-8 top-28 rounded-lg border border-pink-300/30 bg-cyber-panel/70 p-3 text-pink-100 shadow-pink backdrop-blur">
@@ -75,8 +71,15 @@ export default function Hero() {
             <ScanLine className="h-5 w-5" />
           </div>
 
-          <div className="ip-card absolute left-1/2 top-[45%] flex h-[360px] w-[290px] -translate-x-1/2 -translate-y-1/2 items-end justify-center rounded-[28px] border border-cyan-200/30 bg-slate-950/12 p-2 shadow-neon backdrop-blur-[1px] sm:h-[470px] sm:w-[370px] sm:p-3">
+          <div className="ip-card absolute left-1/2 top-[45%] flex h-[360px] w-[290px] -translate-x-1/2 -translate-y-1/2 items-end justify-center rounded-[28px] border border-cyan-200/30 bg-slate-950/18 p-2 shadow-neon backdrop-blur-[1px] sm:h-[470px] sm:w-[370px] sm:p-3">
             <div className="absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_50%_24%,rgba(0,229,255,.18),transparent_34%),linear-gradient(145deg,rgba(139,92,246,.18),transparent_48%)]" />
+            <div className="absolute left-4 top-4 z-20 flex flex-wrap gap-2">
+              {['小齿轮 IP', 'AI Learner', 'Mechanical Mind'].map((tag) => (
+                <span key={tag} className="rounded-full border border-cyan-200/20 bg-cyber-panel/65 px-3 py-1 text-xs text-cyan-50 backdrop-blur">
+                  {tag}
+                </span>
+              ))}
+            </div>
             <img
               src={profileChibi}
               alt="小齿轮进化中个人 IP 形象"
