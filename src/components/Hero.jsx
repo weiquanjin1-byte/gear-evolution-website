@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="hero-copy-panel relative z-10">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-100 shadow-neon">
             <Sparkles className="h-4 w-4" />
-            AI × Mechanical Engineering
+            AI x Mechanical Engineering
           </div>
           <h1 className="font-display text-5xl font-black leading-tight tracking-normal text-white sm:text-6xl lg:text-7xl">
             小齿轮
@@ -26,7 +26,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mt-5 font-display text-2xl text-cyan-100 sm:text-3xl">
-            AI × 机械工程
+            AI x 机械工程
           </p>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             从机械工程出发，探索 AI 的未来。
@@ -42,7 +42,7 @@ export default function Hero() {
               查看项目方向
             </a>
           </div>
-          <div id="skills" className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+          <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
             {highlights.map(([name, desc]) => (
               <div key={name} className="hud-mini-card rounded-lg border border-cyan-200/15 bg-white/[.04] p-4 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cyan-200/35 hover:shadow-neon">
                 <div className="font-display text-lg text-cyan-100">{name}</div>
@@ -91,7 +91,7 @@ export default function Hero() {
             <p className="text-sm leading-7 text-slate-200 sm:text-base">
               机械工程学习者，正在从零探索人工智能。
               <br />
-              用工程思维记录学习，用 AI 工具放大能力，
+              用工程思维记录学习，用 AI 工具放大能力。
               <br />
               让每一次尝试都成为进化的一步。
             </p>

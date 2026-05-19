@@ -2,18 +2,20 @@ import { Cog, Search } from 'lucide-react';
 
 const navItems = [
   { label: '首页', href: '#home' },
+  { label: '关于我', href: '#about' },
   { label: '成长记录', href: '#journey' },
   { label: '项目方向', href: '#mechanical-ai' },
   { label: '技能方向', href: '#skills' },
-  { label: '关于我', href: '#about' },
+  { label: '联系我', href: '#contact' },
 ];
 
 const searchTargets = [
   { keywords: ['首页', '主页', '小齿轮'], href: '#home' },
-  { keywords: ['成长', '记录', '学习', '日志', '时间表', '每日'], href: '#journey' },
+  { keywords: ['关于', '个人', '介绍'], href: '#about' },
+  { keywords: ['成长', '记录', '学习', '日志', '时间线'], href: '#journey' },
   { keywords: ['项目', '方向', '机械', '智能制造'], href: '#mechanical-ai' },
-  { keywords: ['技能', '工具', '实验室', 'ai', '人工智能'], href: '#skills' },
-  { keywords: ['关于', '我', '个人'], href: '#about' },
+  { keywords: ['技能', '工具', '能力', 'ai', '人工智能'], href: '#skills' },
+  { keywords: ['联系', '邮箱', 'email', 'github', '小红书'], href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -44,7 +46,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <form onSubmit={handleSearch} className="order-3 flex w-full items-center gap-2 rounded-full border border-cyan-200/20 bg-white/[.04] px-3 py-2 text-sm shadow-neon backdrop-blur sm:order-none sm:w-64">
+        <form onSubmit={handleSearch} className="order-3 flex w-full items-center gap-2 rounded-full border border-cyan-200/20 bg-white/[.04] px-3 py-2 text-sm shadow-neon backdrop-blur sm:order-none sm:w-64 md:w-72">
           <Search className="h-4 w-4 text-cyan-100/75" />
           <input
             name="search"
