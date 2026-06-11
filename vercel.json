@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/gear-drawing-ai",
+      "destination": "/index.html"
+    }
+  ]
+}
